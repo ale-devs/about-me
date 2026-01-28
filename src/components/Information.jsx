@@ -64,7 +64,7 @@ function Information() {
         </div>
       </div>
 
-      <div className="bg-slate-950/20  p-6 rounded-lg w-11/12">
+      <div className="bg-slate-950/20  p-6 rounded-lg w-11/12 overflow-y-auto">
         {content[active]}
       </div>
     </div>
