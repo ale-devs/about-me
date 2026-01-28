@@ -27,7 +27,7 @@ function Information() {
         <div className="flex flex-col justify-center items-center mt-5">
           <h1 className="text-3xl text-white font-bold">Alessandro Martinez</h1>
           <p className="text-gray-400">Software developer</p>
-          <p className="text-gray-600 mt-7">Passionate web developer. Creative Developer. Content Creator. Whimsical Specialist.</p>
+          <p className="text-gray-600 mt-7 text-center">Passionate web developer. Creative Developer. Content Creator. Whimsical Specialist.</p>
         </div>
 
         <div className="flex flex-col gap-3 md:-mt-10">
