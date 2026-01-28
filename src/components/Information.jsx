@@ -23,7 +23,7 @@ function Information() {
 
   return (
     <div className="p-10 flex flex-col md:flex-row gap-10 md:h-screen">
-      <div className="flex flex-col justify-between gap-5 w-6/12">
+      <div className="flex flex-col justify-between gap-5 w-full md:w-6/12">
         <div className="flex flex-col justify-center items-center mt-5">
           <h1 className="text-3xl text-white font-bold">Alessandro Martinez</h1>
           <p className="text-gray-400">Software developer</p>
@@ -64,7 +64,7 @@ function Information() {
         </div>
       </div>
 
-      <div className="bg-slate-950/20  p-6 rounded-lg w-11/12 overflow-y-auto">
+      <div className="bg-slate-950/20 p-4 rounded-lg w-full md:w-11/12 overflow-y-auto">
         {content[active]}
       </div>
     </div>
