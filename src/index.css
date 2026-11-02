@@ -23,3 +23,150 @@
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
 }
+
+/* Spotlight que sigue al puntero en las tarjetas de proyectos */
+.spotlight-card {
+  --x: 50%;
+  --y: 50%;
+}
+
+.spotlight-glow,
+.spotlight-border {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.spotlight-card:hover .spotlight-glow,
+.spotlight-card:hover .spotlight-border,
+.spotlight-card:focus-visible .spotlight-glow,
+.spotlight-card:focus-visible .spotlight-border {
+  opacity: 1;
+}
+
+.spotlight-glow {
+  background: radial-gradient(
+    220px circle at var(--x) var(--y),
+    rgb(var(--accent) / 0.1),
+    transparent 70%
+  );
+}
+
+/* Solo ilumina el borde, cerca del puntero */
+.spotlight-border {
+  padding: 1px;
+  background: radial-gradient(
+    180px circle at var(--x) var(--y),
+    rgb(var(--accent) / 0.55),
+    transparent 70%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* Luz global que sigue al puntero */
+.cursor-glow {
+  --cx: 50vw;
+  --cy: 50vh;
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 600ms ease;
+  /* Degradado con caída suave (sin borde visible) y ligeramente ovalado */
+  background: radial-gradient(
+    320px 260px at var(--cx) var(--cy),
+    rgba(99, 102, 241, 0.1) 0%,
+    rgba(99, 102, 241, 0.075) 12%,
+    rgba(99, 102, 241, 0.05) 25%,
+    rgba(99, 102, 241, 0.028) 40%,
+    rgba(99, 102, 241, 0.012) 58%,
+    rgba(99, 102, 241, 0.004) 76%,
+    transparent 100%
+  );
+}
+
+/* ---------- Fondo decorativo ---------- */
+.bg-decor {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bg-dots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 24px 24px;
+  /* Los puntos se desvanecen hacia los bordes */
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 30%, transparent 100%);
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 30%, transparent 100%);
+}
+
+.bg-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  will-change: transform;
+}
+
+.bg-blob--indigo {
+  width: 38rem;
+  height: 38rem;
+  top: -12rem;
+  right: -8rem;
+  background: rgba(99, 102, 241, 0.13);
+  animation: blob-float-a 26s ease-in-out infinite alternate;
+}
+
+@keyframes blob-float-a {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-6rem, 4rem) scale(1.1); }
+  100% { transform: translate(3rem, 8rem) scale(0.95); }
+}
+
+/* ---------- Animaciones al cambiar de sección o idioma ---------- */
+/* Las aplica src/utils/buildIn.js a cada pieza, una tras otra */
+@keyframes build-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.985);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+/* Los títulos se "escriben" de izquierda a derecha */
+@keyframes build-type {
+  from {
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+  }
+  20% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Respeta a quienes prefieren menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .bg-blob {
+    animation: none;
+  }
+}
