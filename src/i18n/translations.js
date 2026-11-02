@@ -64,7 +64,7 @@ export const translations = {
           ],
           responsibilities: [
             "Desarrollo de plataformas web con Next.js y TypeScript.",
-            "Desarrollo de la plataforma educativa Excelencia Escolar.",
+            "Participación en el desarrollo de la plataforma educativa Excelencia Escolar.",
             "Modelado y consultas de bases de datos PostgreSQL con Drizzle ORM.",
             "Administración de plataformas y gestión desde Google Cloud Console.",
             "Extracción y análisis de datos con BigQuery.",
@@ -124,7 +124,7 @@ export const translations = {
         {
           title: "Excelencia Escolar",
           description:
-            "Plataforma educativa en la que trabajo en el desarrollo de funcionalidades, la gestión de datos y la calidad del sistema.",
+            "Plataforma educativa en la que participé en el desarrollo de funcionalidades, la gestión de datos y la calidad del sistema.",
           highlights: ["Desarrollo full stack", "Plataforma en producción", "QA y seguridad"],
         },
         {
@@ -211,7 +211,7 @@ export const translations = {
           ],
           responsibilities: [
             "Web platform development with Next.js and TypeScript.",
-            "Development of the Excelencia Escolar education platform.",
+            "Contributed to the development of the Excelencia Escolar education platform.",
             "PostgreSQL data modeling and queries with Drizzle ORM.",
             "Platform administration and management through Google Cloud Console.",
             "Data extraction and analysis with BigQuery.",
@@ -271,7 +271,7 @@ export const translations = {
         {
           title: "Excelencia Escolar",
           description:
-            "Education platform where I work on feature development, data management and overall system quality.",
+            "Education platform where I contributed to feature development, data management and overall system quality.",
           highlights: ["Full stack development", "Production platform", "QA & security"],
         },
         {
